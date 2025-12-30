@@ -104,6 +104,12 @@ a {
     align-items: center;
 }
 
+.logo {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
 .logo h2 {
     font-size: 1.5rem;
     color: var(--forest-green);
