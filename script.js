@@ -180,11 +180,30 @@ if (emiForm) {
 const downloadBrochure = document.getElementById('downloadBrochure');
 
 if (downloadBrochure) {
-    downloadBrochure.addEventListener('click', (e) => {
+    downloadBrochure.addEventListener('click', async (e) => {
         e.preventDefault();
-        alert('Brochure download will be available soon. Please contact us for more information.');
-        // In a real implementation, you would link to a PDF file:
-        // window.open('path/to/brochure.pdf', '_blank');
+        try {
+            // Fetch the PDF file
+            const response = await fetch('doc/brochure.pdf');
+            const blob = await response.blob();
+            
+            // Create a blob URL and trigger download
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'ROYALSENZ_Brochure.pdf';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            
+            // Clean up
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Error downloading brochure:', error);
+            // Fallback: open in new tab if download fails
+            window.open('doc/brochure.pdf', '_blank');
+        }
     });
 }
 

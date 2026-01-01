@@ -1038,6 +1038,19 @@ section {
     flex-wrap: wrap;
 }
 
+.models-cta .btn-secondary {
+    background: var(--forest-green);
+    color: var(--white);
+    border: 2px solid var(--forest-green);
+}
+
+.models-cta .btn-secondary:hover {
+    background: var(--eco-lime);
+    color: var(--dark-grey);
+    border-color: var(--eco-lime);
+    transform: translateY(-2px);
+}
+
 /* ===== Testimonials Section ===== */
 .testimonials {
     background: var(--light-grey);
@@ -1655,11 +1668,58 @@ section {
     z-index: 999;
     transition: var(--transition);
     color: var(--white);
+    animation: shiver 5s ease-in-out infinite;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    animation: none; /* Stop shiver on hover */
+}
+
+/* Shivering animation for WhatsApp button */
+/* Shivers for first 12% of animation (0.6s), then stays still for remaining 88% (4.4s) */
+@keyframes shiver {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        filter: brightness(1);
+    }
+    2% {
+        transform: translate(-3px, -2px) rotate(-2deg) scale(1.08);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+        filter: brightness(1.2);
+    }
+    4% {
+        transform: translate(3px, 2px) rotate(2deg) scale(1.08);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+        filter: brightness(1.2);
+    }
+    6% {
+        transform: translate(-2px, 3px) rotate(-2deg) scale(1.08);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+        filter: brightness(1.2);
+    }
+    8% {
+        transform: translate(2px, -3px) rotate(2deg) scale(1.08);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+        filter: brightness(1.2);
+    }
+    10% {
+        transform: translate(-3px, 2px) rotate(-2deg) scale(1.08);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+        filter: brightness(1.2);
+    }
+    12% {
+        transform: translate(3px, -2px) rotate(2deg) scale(1.08);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+        filter: brightness(1.2);
+    }
+    12.1%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        filter: brightness(1);
+    }
 }
 
 /* ===== Fade-in Animation ===== */
